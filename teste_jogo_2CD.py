@@ -9,6 +9,7 @@ largura = 640
 altura = 480
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Teste 2CD')
+
 velocidade = 10
 x_controle = velocidade
 y_controle = 0
@@ -47,33 +48,34 @@ while True:
             exit()
            
     
-        if event.type == KEYDOWN:
-            
+        if event.type == KEYDOWN:            
             if event.key == K_a:
                 if x_controle == velocidade:
                     pass
-            else:
-                x_controle =  -velocidade
-                y_controle = 0
+                else:
+                    x_controle = -velocidade
+                    y_controle = 0
+
             if event.key == K_d:
                 if x_controle == -velocidade:
                     pass
-            else:
-                x_controle = velocidade
-                y_controle = 0
+                else:
+                    x_controle = velocidade
+                    y_controle = 0
+
             if event.key == K_w:
                 if y_controle == velocidade:
                     pass
-            else:
-                y_controle = -velocidade
-                x_controle = 0
+                else:
+                    y_controle = -velocidade
+                    x_controle = 0
                 
             if event.key == K_s:
                 if y_controle == -velocidade:
                     pass
-            else:
-                y_controle = velocidade
-                x_controle = 0
+                else:
+                    y_controle = velocidade
+                    x_controle = 0
 
     x_cobra = x_cobra + x_controle
     y_cobra = y_cobra + y_controle

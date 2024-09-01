@@ -24,6 +24,9 @@ comprimento_inicial = 5
 morreu = False 
 pontos = 0
 
+musica_de_fundo = pygame.mixer.music.load('BeepBox-Song.mp3')
+pygame.mixer.music.play(-1)
+
 fonte_1 = pygame.font.SysFont('Comic Sans', 40, True, False)
 
 som_colisao = pygame.mixer.Sound('smw_kick.wav')
@@ -104,6 +107,8 @@ while True:
     lista_cobra.append(lista_cabeca)
 
     if lista_cobra.count(lista_cabeca) > 1:
+       pygame.mixer.music.stop()
+       tela.fill((110,0,150))
        fonte_2 = pygame.font.SysFont('Comic Sans', 13, False, False)  
        game_over = 'Puts, meu amigo! Nao foi dessa vez... Aperte R se quiser continuar ou vai tomar um ar'
        texto_reiniciar = fonte_2.render(game_over, True, (255,255,255))  
@@ -111,7 +116,6 @@ while True:
        morreu = True
        while morreu:
            for event in pygame.event.get():
-               tela.fill((110,0,150))
                if event.type == QUIT:
                    pygame.quit()
                    exit()
@@ -139,4 +143,4 @@ while True:
 
     tela.blit(texto, (30, 20))
     
-    pygame.display.update() 
+    pygame.display.flip() 
